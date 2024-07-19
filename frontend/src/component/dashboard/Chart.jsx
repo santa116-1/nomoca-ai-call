@@ -1,6 +1,5 @@
 import Paper from '@mui/material/Paper';
-import { lighten, useTheme } from '@mui/material/styles';
-import Tab from '@mui/material/Tab';
+import { useTheme } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import { memo, useEffect, useState } from 'react';
