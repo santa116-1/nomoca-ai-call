@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import Button from './Button';
 import { IoFilter } from 'react-icons/io5';
 import { FaEllipsisVertical } from 'react-icons/fa6';
-import Filter from './modals/Filter';
 
 const SavedKw = () => {
     const [filterShow, setFilterShow] = useState(false);
@@ -46,7 +45,7 @@ const SavedKw = () => {
 
     return (
         <>
-            {filterShow && <Filter onShow={filterShow} />}
+            {filterShow}
             <div className="overflow-x-auto relative rounded-xl">
                 <table className="min-w-full">
                     <thead className="bg-white text-left p-2">
@@ -89,14 +88,12 @@ const SavedKw = () => {
                                     <td className="whitespace-nowrap py-2">
                                         {keyword.status ? (
                                             <button
-                                                // onClick={() => handlePreview(index)}
                                                 className="h-fit px-[24px] py-[8px] leading-[14px] rounded-full bg-white bg-[#3BAAE2]/0 hover:bg-[#3BAAE2]/10 active:bg-[#3BAAE2]/20 border-[1px] border-[#3BAAE2] text-[#3DAAE2] font-bold text-[14px]"
                                             >
                                                 生成済
                                             </button>
                                         ) : (
                                             <button
-                                                // onClick={() => handlePreview(index)}
                                                 className="h-fit leading-[14px] bg-white text-center text-gray-900 hover:bg-[#5469D4]/80 active:bg-[#5469D4] hover:text-white border-[1px] border-gray-400 rounded-full px-[24px] py-[8px] font-bold text-[14px]"
                                             >
                                                 未生成

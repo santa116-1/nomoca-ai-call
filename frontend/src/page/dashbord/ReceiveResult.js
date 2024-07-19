@@ -7,7 +7,7 @@ import SavedKw from "../../component/SavedKw";
 import Header from "../../component/common/header";
 import DownloadBtn from "../../component/DownloadBtn";
 
-const SavedKeywords = () => {
+const ReceiveResult = () => {
   return (
 
     <ContainerDiv>
@@ -34,4 +34,4 @@ const SavedKeywords = () => {
   );
 }
 
-export default SavedKeywords;
+export default ReceiveResult;

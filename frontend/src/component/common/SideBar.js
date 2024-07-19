@@ -7,8 +7,7 @@ import { HiOutlineCommandLine } from "react-icons/hi2";
 import { CiSettings } from "react-icons/ci";
 import { VscListUnordered } from "react-icons/vsc";
 import { FaCrown } from "react-icons/fa";
-import Avatar from "./Avatar";
-import Progress from "./Progress";
+import Avatar from "../TopIcons/AvatarIcon";
 import SideBtn from "../SideBtn";
 
 
@@ -111,28 +110,6 @@ const SideBar = () => {
                     </ul>
                 </div>
             </div>
-
-            <div className="hidden xl:block">
-                <div className="flex flex-col pl-8 gap-4 mb-6">
-                    <div className="flex items-center gap-4">
-                        <div className=" relative">
-                            <Avatar />
-                            {premiumStatus === "is premium" ? (
-                                <div className=" absolute top-0 right-[-5px]">
-                                    <FaCrown size={20} color="#ff9b00" />
-                                </div>) :
-                                (<></>)
-                            }
-                        </div>
-
-                        <div className="flex flex-col items-center justify-between">
-                            <p className="text-base">NAMENAMENAME</p>
-                            <p className="text-[14px]">{email}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </aside>
     );
 };

@@ -12,7 +12,7 @@ import WaitEmail from "./authontication/WaitEmail";
 import HomePage from "./page/home/HomePage";
 import './App.scss';
 import SecurityCode from "./authontication/SecurityCode";
-import KeywordRouter from "./page/keyword/KeywordRouter";
+import DashboardRouter from "./page/dashbord/DashboardRouter";
 
 
 
@@ -35,7 +35,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/sign-out" element={<SignOutPage />} />
         {/* <Route path="/home" element={<HomePage content={notification}/>} /> */}
-        <Route path="/home/*" element={<KeywordRouter />} />
+        <Route path="/home/*" element={<DashboardRouter />} />
 
         
       </Routes>

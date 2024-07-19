@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FiAlignJustify } from "react-icons/fi";
-import SideBar from '../../component/sidebar/SideBar';
-import TopBar from '../../component/sidebar/TopBar';
-import InitPage from './InitPage';
+import SideBar from '../../component/common/SideBar';
+import TopBar from '../../component/common/TopBar';
 
 export const metadata = {
   title: 'Article AI Generator',
@@ -25,7 +24,6 @@ const RootLayout = ({ children }) => {
             <FiAlignJustify onClick={toggleSidebar} className="absolute xl:hidden right-4" size={30} />
             <TopBar />
             {children}
-            {/* <InitPage/> */}
           </div>
         </div>
       </body>

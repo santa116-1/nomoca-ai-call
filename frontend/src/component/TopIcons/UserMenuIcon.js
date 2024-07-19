@@ -1,22 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import MenuItem from './MenuItem';
-
-const UserMenu = () => {
+const UserMenuIcon = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate
 
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
     }, []);
 
-    const handlelogin = () => {
-        navigate('/login');
-    }
-
-    const handleregister = () => {
-        navigate('/register');
-    }
     return (
         <>
             <div
@@ -43,4 +32,4 @@ const UserMenu = () => {
     );
 };
 
-export default UserMenu;
+export default UserMenuIcon;

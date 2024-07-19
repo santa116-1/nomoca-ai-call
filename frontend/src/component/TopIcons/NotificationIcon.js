@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Notification = () => {
+const NotificationIcon = () => {
     return (
         <button
             className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30"
@@ -25,4 +25,4 @@ const Notification = () => {
     );
 };
 
-export default Notification;
+export default NotificationIcon;

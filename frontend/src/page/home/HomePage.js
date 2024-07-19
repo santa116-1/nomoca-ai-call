@@ -3,6 +3,7 @@ import Header from "../../component/common/header";
 import Paper from "@mui/material/Paper";
 import TablePagination from "@mui/material/TablePagination";
 import Notification from "../../component/common/notification";
+import Chart from "../../component/dashboard/Chart";
 
 
 function createData(title, amount, category, status, keyword, ranking, date) {
@@ -173,7 +174,7 @@ const HomePage = (props) => {
       <Header />
       <div className="relative flex flex-col flex-1 items-start px-40">
         <h1 className="heading font text-[calc(10px+2vmin)] font-semibold mt-16">
-          受電結果
+          受電結果afasdfasdfasdf
         </h1>
         <Paper sx={{ width: "100%", paddingTop: "1rem", marginTop: "2rem" }}>
           {/* <TableContainer sx={{ maxHeight: 440 }}>
@@ -247,6 +248,7 @@ const HomePage = (props) => {
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
         </Paper>
+        <Chart/>
       </div>
       <Notification content={content} />
     </div>

@@ -30,16 +30,12 @@ const Header = () => {
             {/* <Link to="/home" className="text-2xl mb-5 font-bold">
               <img src={`${process.env.PUBLIC_URL}/images/logo.svg`} className="h-12" alt="Logo" />
             </Link> */}
-            LOGO
+            NOMOCA-AI-CALL
           </h1>
         </div>
         <div className="flex items-center gap-7 rounded-full">
           <div>
             <UserMenu/>
-            <Dialog open={openDialog} onClose={handelLogoutClose}>
-              <DialogTitle>Logout</DialogTitle>
-              <p>Really?</p>
-            </Dialog>
           </div>
         </div>
       </nav>
