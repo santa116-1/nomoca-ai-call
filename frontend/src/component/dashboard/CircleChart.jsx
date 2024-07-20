@@ -88,20 +88,20 @@ function CircleChart(props) {
     return null;
   }
   return (
-    <Paper className="flex flex-col flex-auto shadow rounded-2xl overflow-hidden p-24">
+    <Paper className="flex flex-col flex-auto shadow rounded-2xl overflow-hidden p-10">
       <div className="flex flex-col sm:flex-row items-start justify-between">
         <div className="ml-8">
           <Chip size="small" className="font-medium text-sm" label=" 30 days" />
         </div>
       </div>
 
-      <div className="flex flex-col flex-auto mt-24 h-192">
+      <div className="flex flex-col flex-auto mt-24">
         <ReactApexChart
           className="flex flex-auto items-center justify-center w-full h-full"
-          options={chartOptions}
-          series={series}
-          type={chartOptions.chart.type}
-          height={chartOptions.chart.height}
+          // options={chartOptions}
+          // series={series}
+          // type={chartOptions.chart.type}
+          // height={chartOptions.chart.height}
         />
       </div>
     

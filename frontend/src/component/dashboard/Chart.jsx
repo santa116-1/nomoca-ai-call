@@ -196,7 +196,7 @@ function Chart() {
   }
 
   return (
-    <Paper className="flex flex-col flex-auto p-24 shadow rounded-2xl overflow-hidden">
+    <Paper className="flex flex-col flex-auto p-10 shadow rounded-2xl overflow-hidden">
       <div className="flex flex-col sm:flex-row items-start justify-between">
         <Typography className="text-lg font-medium tracking-tight leading-6 truncate">
           受電件数 (日付別)
@@ -223,7 +223,7 @@ function Chart() {
           </Tabs>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-24 w-full mt-32 sm:mt-16">
+      <div className="">
         <div className="flex flex-col flex-auto">
           <div className="flex flex-col flex-auto">
             <ReactApexChart
