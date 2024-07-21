@@ -11,8 +11,7 @@ const Loan = () => {
     <div className="bg-white w-full rounded-lg p-5 border-[1px] overflow-hidden">
       <div className="flex items-center gap-12 my-3">
         <div>
-          <p className="text-gray-500">Total Debts</p>
-          <h4 className="text-2xl font-bold text-gray-700">$10,02,000</h4>
+          <p className="text-[28px] font-semibold">用件(概要)</p>
         </div>
       </div>
       <div className="grid lg:grid-cols-12 gap-4 items-center justify-between">

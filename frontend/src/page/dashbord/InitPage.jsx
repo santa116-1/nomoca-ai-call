@@ -3,7 +3,6 @@ import ContainerDiv from "../../component/ContainerDiv";
 import Error from "../../component/common/error";
 import Notification from "../../component/common/notification";
 import Chart from "../../component/dashboard/Chart";
-import CircleChart from "../../component/dashboard/CircleChart";
 import Loan from "../../component/dashboard/Loan";
 import CustomDonutChart from "../../component/dashboard/piechart";
 import Header from "../../component/common/header";
@@ -20,7 +19,6 @@ const InitPage = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <Chart />
-          {/* <CircleChart /> */}
           <Loan />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

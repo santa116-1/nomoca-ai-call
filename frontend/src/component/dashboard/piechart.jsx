@@ -68,6 +68,7 @@ const CustomDonutChart = () => {
 
   return (
     <div className="bg-white w-full rounded-lg p-5 border-[1px] overflow-hidden">
+      <p className="text-[28px] font-semibold">用件(概要)</p>
       <ReactApexChart
         width={'100%'}
         height={'auto'}

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { RiLayoutMasonryFill } from "react-icons/ri";
 import { MdBarChart } from "react-icons/md";
 import { BsArrowClockwise } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
-import UserMenu from "./userMenu";
+import { googleLogout } from '@react-oauth/google';
 
 const Header = () => {
-  const navigate = useNavigate(); // Hook to get the navigate function
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openDialog, setOpenDialog] = useState(false);
+  const navigate = useNavigate(); 
+  const handleLogout =()=>{
+      localStorage.removeItem("accessToken");
+      googleLogout();
+      navigate('/')
+  }
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
   return (
     <header>
       <nav className="flex justify-between items-center bg-[#2978CA] h-20 px-20 text-xl">
@@ -31,7 +31,6 @@ const Header = () => {
               <RiLayoutMasonryFill style={{ fontSize: '25px', marginRight: "5px" }} />
               ダッシュボード
             </button>
-
             <button
               onClick={() => navigate("/result")}
               className=" flex justify-center items-center gap-1 mr-4 p-2 rounded-md text-white "
@@ -47,7 +46,9 @@ const Header = () => {
               パスワード変更
             </button>
             <button
-              onClick={() => navigate("/reset-password")}
+          onClick={() => {
+            handleLogout();
+          }}
               className=" flex justify-center items-center gap-1 mr-4 p-2 rounded-md text-white "
             >
               <MdLogout style={{ fontSize: '25px', marginRight: "5px" }} />
