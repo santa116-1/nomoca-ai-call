@@ -44,7 +44,7 @@ Docker Composeがインストールされていない場合は、以下のリン
 まず、GitHubリポジトリをローカル環境にクローンします。
 
 ```bash
-git clone https://github.com/unirobot/trial-toi.git
+git clone -b develop https://github.com/unirobot/trial-toi.git
 cd trial-toi
 
 ```
