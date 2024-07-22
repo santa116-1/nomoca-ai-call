@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { CiPen } from "react-icons/ci";
 import { AiOutlineSave } from "react-icons/ai";
