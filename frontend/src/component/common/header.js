@@ -25,7 +25,7 @@ const Header = () => {
         <div className="flex items-center gap-7">
           <div className="navbar flex items-center ml-5">
             <button
-              onClick={() => navigate("/dashbord")}
+              onClick={() => navigate("/dashboard")}
               className=" flex justify-center items-center gap-1 mr-4 p-2 rounded-md text-white "
             >
               <RiLayoutMasonryFill style={{ fontSize: '25px', marginRight: "5px" }} />

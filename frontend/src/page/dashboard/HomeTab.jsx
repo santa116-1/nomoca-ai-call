@@ -5,6 +5,7 @@ import ChartDate from '../../component/dashboard/widgets/ChartDate';
 import ChartTimme from '../../component/dashboard/widgets/ChartTimme';
 import Loan from '../../component/dashboard/Loan';
 import CustomDonutChart from '../../component/dashboard/CustomDonutChart';
+import DetailsTable from '../../component/dashboard/DetailsTable';
 
 function HomeTab() {
   return (
@@ -21,7 +22,7 @@ function HomeTab() {
           </div>
         </div>
         <div>
-          <AICallTime />
+          <DetailsTable />
         </div>
       </div>
 

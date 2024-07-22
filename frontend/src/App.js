@@ -12,7 +12,7 @@ import WaitEmail from "./authontication/WaitEmail";
 import HomePage from "./page/home/HomePage";
 import './App.scss';
 import SecurityCode from "./authontication/SecurityCode";
-import DashboardRouter from "./page/dashbord/DashboardRouter";
+import DashboardRouter from "./page/dashboard/DashboardRouter";
 
 
 

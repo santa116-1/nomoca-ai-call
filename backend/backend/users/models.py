@@ -46,7 +46,7 @@ class User(AbstractUser):
     ]
 
     # First and last name do not cover name patterns around the globe
-    fullname = CharField(max_length=255, default="shiraishi Masayuki")
+    fullname = CharField(max_length=255, default="User Name")
     name = CharField(_("Name of User"), blank=True, max_length=255)
     first_name = models.CharField(_("firstName of User"), blank=True, max_length=100)
     last_name = models.CharField(_("lastName of User"), blank=True, max_length=100)

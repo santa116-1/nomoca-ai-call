@@ -119,7 +119,7 @@ docker ps
 
 例：
 ```bash
-    docker-compose exec app python manage.py migrate
+    docker-compose exec web python manage.py migrate
 
 ```
 ### データベースのバックアップと復元

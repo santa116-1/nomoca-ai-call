@@ -14,7 +14,7 @@ router.register("users", UserViewSet)
 
 sub_urls = [
     path('authentication/', include('users.api.urls')),
-    path('explorer/', include('explorer.urls'))
+
 ]
 
 app_name = "api"
