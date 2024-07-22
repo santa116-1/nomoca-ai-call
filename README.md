@@ -52,7 +52,7 @@ cd trial-toi
 プロジェクトルートに .env ファイルを作成し、必要な環境変数を設定します。例：
 
 ```bash
-DATABASE_URL=postgres://postgres:qweQWE123@localhost:5432/nomocaDB
+DATABASE_URL=postgres://postgres:qweQWE123@localhost:5432/nomoca
 
 ```
 
@@ -139,12 +139,12 @@ docker ps
 データベースのバックアップを取得するには、以下のコマンドを使用します。
 
 ```bash
-    docker-compose exec db pg_dump -U user nomocaDB > backup.sql
+    docker-compose exec db pg_dump -U user nomoca > backup.sql
 
 ```
 バックアップからデータベースを復元するには、以下のコマンドを使用します。
 
 ```bash
-    cat backup.sql | docker-compose exec -T db psql -U user nomocaDB
+    cat backup.sql | docker-compose exec -T db psql -U user nomoca
 
 ```
