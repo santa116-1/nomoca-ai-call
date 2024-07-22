@@ -52,8 +52,7 @@ cd trial-toi
 プロジェクトルートに .env ファイルを作成し、必要な環境変数を設定します。例：
 
 ```bash
-DATABASE_URL=postgres://user:password@database:5432/mydatabase
-SECRET_KEY=mysecretkey
+DATABASE_URL=postgres://postgres:qweQWE123@localhost:5432/nomocaDB
 
 ```
 
@@ -77,29 +76,24 @@ docker run -p 3000:3000 your-image-name
 ### 1. docker-compose.yml を確認する
 docker-compose.yml ファイルが正しいことを確認します。以下は例です：
 ```bash
-    version: '3'
-    services:
-    db:
-        image: postgres:13
-        environment:
-        POSTGRES_USER: user
-        POSTGRES_PASSWORD: password
-        POSTGRES_DB: mydatabase
-        volumes:
-        - postgres_data:/var/lib/postgresql/data
+version: "3"
 
-    app:
-        build: .
-        ports:
-        - "3000:3000"
-        depends_on:
-        - db
-        env_file:
-        - .env
+services:
+  db:
+    image: postgres
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=qweQWE123"
 
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-    postgres_data:
-
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
 ```
 
 ### 2. Docker Composeを使用してコンテナを起動する
@@ -145,12 +139,12 @@ docker ps
 データベースのバックアップを取得するには、以下のコマンドを使用します。
 
 ```bash
-    docker-compose exec db pg_dump -U user mydatabase > backup.sql
+    docker-compose exec db pg_dump -U user nomocaDB > backup.sql
 
 ```
 バックアップからデータベースを復元するには、以下のコマンドを使用します。
 
 ```bash
-    cat backup.sql | docker-compose exec -T db psql -U user mydatabase
+    cat backup.sql | docker-compose exec -T db psql -U user nomocaDB
 
 ```
