@@ -5,7 +5,7 @@ services:
     image: postgres
     environment:
       - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=wjdrud116"
+      - "POSTGRES_PASSWORD=qweQWE123"
 
   web:
     build: .
