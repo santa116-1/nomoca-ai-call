@@ -56,19 +56,6 @@ DATABASE_URL=postgres://postgres:qweQWE123@localhost:5432/nomoca
 
 ```
 
-### 3. Dockerイメージをビルドする
-プロジェクトのルートディレクトリに移動し、Dockerイメージをビルドします
-
-```bash
-docker build -t your-image-name .
-
-```
-### 4. Dockerコンテナを起動する
-ビルドしたDockerイメージを使用してコンテナを起動します。
-```bash
-docker run -p 3000:3000 your-image-name
-
-```
 ## Docker Composeを使用してプロジェクトを起動する (オプション)
 
 もし docker-compose.yml ファイルがプロジェクトに含まれている場合、Docker Composeを使用してコンテナを起動できます。
