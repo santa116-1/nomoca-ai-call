@@ -36,7 +36,6 @@ Docker Composeがインストールされていない場合は、以下のリン
 
 [Docker Composeインストールガイド](https://docs.docker.jp/v1.12/compose/install.html)
 
-インストール後、以下のコマンドでインストールを確認できます。
 
 ## プロジェクトのセットアップ
 
