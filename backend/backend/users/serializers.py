@@ -17,9 +17,7 @@ class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
 
-# class MailVerifySerializer(serializers.Serializer):
-#     token = serializers.CharField()
-    
+
 class VerifyCodeSerializer(serializers.Serializer):
     email = serializers.EmailField()
     code = serializers.IntegerField()
