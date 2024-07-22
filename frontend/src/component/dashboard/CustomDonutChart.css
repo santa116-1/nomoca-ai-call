@@ -1,0 +1,13 @@
+.apexcharts-datalabel-label {
+    font-size: 24px !important;
+    fill: rgb(0, 0, 0) !important;
+    font-weight: bold;
+
+  }
+  
+  .apexcharts-datalabel-value {
+    font-size: 36px !important;
+    fill: rgb(0, 0, 0) !important;
+    font-weight: bold;
+  }
+  

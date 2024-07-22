@@ -23,7 +23,7 @@ const SecurityCode = ({email}) => {
       setToken(accessToken);
       localStorage.setItem("accessToken", accessToken);
       console.log(response.data);
-      navigate("/home")
+      navigate("/dashboard")
 
     } catch (error) {
 

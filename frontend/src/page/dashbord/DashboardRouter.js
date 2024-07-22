@@ -6,7 +6,8 @@ import RootLayout from "./RootLayout";
 import InitPage from "./InitPage";
 import ClientErrorPage from "./ClientErrorPage";
 import ReceiveResult from "./ReceiveResult";
-import HomeTab from "../../component/dashboard/HomeTab";
+import HomeTab from "./HomeTab";
+import Result from "./Result";
 
 const DashboardRouter = () => {
   const selectedSiteName = useSelector((state) => state.site.siteName);
@@ -15,9 +16,9 @@ const DashboardRouter = () => {
   return (
     <RootLayout>
       <Routes>
-        <Route path="/" element={<InitPage/>} />
-        <Route path="/savedkeywords" element={<ReceiveResult />} />
-        <Route path="/home" element={<HomeTab />} />
+        <Route path="/" element={<HomeTab/>} />
+        <Route path="/result" element={<Result />} />
+        <Route path="/home" element={<InitPage />} />
         <Route path="*" element={<ClientErrorPage />} />
       </Routes>
     </RootLayout>

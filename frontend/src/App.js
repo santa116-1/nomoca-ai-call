@@ -35,7 +35,8 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/sign-out" element={<SignOutPage />} />
         {/* <Route path="/home" element={<HomePage content={notification}/>} /> */}
-        <Route path="/home/*" element={<DashboardRouter />} />
+        <Route path="/dashboard*" element={<DashboardRouter />} />
+        {/* <Route path="/result" element={<DashboardRouter />} /> */}
 
         
       </Routes>

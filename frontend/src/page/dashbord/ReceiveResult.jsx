@@ -4,7 +4,6 @@ import Title from "../../component/Title";
 import UploadBtn from "../../component/UploadBtn";
 import Button from "../../component/Button";
 import SavedKw from "../../component/SavedKw";
-import Header from "../../component/common/header";
 import DownloadBtn from "../../component/DownloadBtn";
 
 const ReceiveResult = () => {

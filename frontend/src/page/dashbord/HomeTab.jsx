@@ -1,19 +1,14 @@
-import SummaryWidget from './widgets/SummaryWidget';
-import OverdueWidget from './widgets/OverdueWidget';
-import IssuesWidget from './widgets/IssuesWidget';
-import GithubIssuesWidget from './widgets/GithubIssuesWidget';
-import CallAmount from './widgets/CallAmount';
-import ClinicCallTime from './widgets/ClinicCallTime';
-import AICallTime from './widgets/AICallTime';
-import ChartDate from './widgets/ChartDate';
-import ChartTimme from './widgets/ChartTimme';
+import CallAmount from '../../component/dashboard/widgets/CallAmount';
+import ClinicCallTime from '../../component/dashboard/widgets/ClinicCallTime';
+import AICallTime from '../../component/dashboard/widgets/AICallTime';
+import ChartDate from '../../component/dashboard/widgets/ChartDate';
+import ChartTimme from '../../component/dashboard/widgets/ChartTimme';
+import Loan from '../../component/dashboard/Loan';
+import CustomDonutChart from '../../component/dashboard/CustomDonutChart';
 
 function HomeTab() {
   return (
-    <div
-      className=" w-full min-w-0 p-24"
-
-    >
+    <div className=" w-full min-w-0 p-24">
       <div className=' grid grid-cols-2 gap-5'>
         <div className=' grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-5'>
           <div className='col-span-2  grid grid-rows-1 sm:grid-rows-1 md:grid-rows-2 gap-5'>
@@ -22,7 +17,7 @@ function HomeTab() {
             <ClinicCallTime />
           </div>
           <div className="col-span-3">
-            <AICallTime />
+            <CustomDonutChart />
           </div>
         </div>
         <div>

@@ -42,7 +42,7 @@ const Login = (props) => {
             setToken(accessToken);
             localStorage.setItem("accessToken", accessToken);
             setNotification(data.message);
-            navigate("/home");
+            navigate("/dashboard");
           })
           .catch((error) => {
             console.error("Backend Error:", error);
@@ -101,7 +101,7 @@ const Login = (props) => {
     return localStorage.getItem("accessToken") !== null && undefined;
   };
   useEffect(() => {
-    isAuthenticated() && navigate("/home");
+    isAuthenticated() && navigate("/dashboard");
   }, [navigate, token]);
   return (
     <div className="flex flex-col h-screen">

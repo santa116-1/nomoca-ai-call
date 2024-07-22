@@ -32,7 +32,7 @@ const Header = () => {
               ダッシュボード
             </button>
             <button
-              onClick={() => navigate("/result")}
+              onClick={() => navigate("/dashboard/result")}
               className=" flex justify-center items-center gap-1 mr-4 p-2 rounded-md text-white "
             >
               <MdBarChart style={{ fontSize: '25px', marginRight: "5px" }} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import './CustomDonutChart.css'; // Import the CSS file
 
 const CustomDonutChart = () => {
   const series = [60, 30, 10]; // Data from the provided image
@@ -57,7 +58,7 @@ const CustomDonutChart = () => {
               showAlways: true,
               label: '全体',
               formatter: () => '350',
-              fontSize: '15px',
+              fontSize: '24px',
               color: 'gray',
             },
           },
@@ -69,13 +70,16 @@ const CustomDonutChart = () => {
   return (
     <div className="bg-white w-full rounded-lg p-5 border-[1px] overflow-hidden">
       <p className="text-[28px] font-semibold">用件(概要)</p>
-      <ReactApexChart
-        width={'100%'}
-        height={'auto'}
-        type="donut"
-        options={options}
-        series={series}
-      />
+      <div className=' p-5'>
+        <ReactApexChart
+          width={'100%'}
+          height={'auto'}
+          type="donut"
+          options={options}
+          series={series}
+        />
+      </div>
+
     </div>
   );
 };

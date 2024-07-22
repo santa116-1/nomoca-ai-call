@@ -4,8 +4,7 @@ import Error from "../../component/common/error";
 import Notification from "../../component/common/notification";
 import Chart from "../../component/dashboard/Chart";
 import Loan from "../../component/dashboard/Loan";
-import CustomDonutChart from "../../component/dashboard/piechart";
-import Header from "../../component/common/header";
+import CustomDonutChart from "../../component/dashboard/CustomDonutChart";
 
 const InitPage = () => {
   const [error, setError] = useState("");
