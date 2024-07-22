@@ -2,8 +2,41 @@
 
 ## 必要条件
 
+- [Git](https://git-scm.com/) がインストールされていること
 - [Docker](https://www.docker.com/) がインストールされていること
-- [Docker Compose](https://docs.docker.com/compose/) (もしComposeを使用する場合)
+- [Docker Compose](https://docs.docker.com/compose/) がインストールされていること (Composeを使用する場合)
+
+## 環境設定
+
+### 1. Gitのインストール
+
+Gitがインストールされていない場合は、以下のリンクからインストールしてください。
+[Gitダウンロードページ](https://git-scm.com/downloads)
+
+インストール後、以下のコマンドでインストールを確認できます。
+
+```bash
+git --version
+
+```
+
+### 2. Dockerのインストール
+
+Dockerがインストールされていない場合は、以下のリンクからインストールしてください。
+[Dockerダウンロードページ](https://www.docker.com/ja-jp/products/docker-desktop/)
+
+インストール後、以下のコマンドでインストールを確認できます
+
+```bash
+docker --version
+```
+
+### 3. Docker Composeのインストール
+Docker Composeがインストールされていない場合は、以下のリンクからインストールしてください。
+
+[Docker Composeインストールガイド](https://docs.docker.jp/v1.12/compose/install.html)
+
+インストール後、以下のコマンドでインストールを確認できます。
 
 ## プロジェクトのセットアップ
 
@@ -119,6 +152,5 @@ docker ps
 
 ```bash
     cat backup.sql | docker-compose exec -T db psql -U user mydatabase
-
 
 ```
