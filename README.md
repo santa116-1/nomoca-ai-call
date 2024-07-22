@@ -45,7 +45,7 @@ Docker Composeがインストールされていない場合は、以下のリン
 
 ```bash
 git clone -b develop https://github.com/unirobot/trial-toi.git
-cd trial-toi
+cd trial-toi\backend
 
 ```
 ### 2. 環境変数の設定
