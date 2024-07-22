@@ -2,7 +2,7 @@ from django.conf import settings
 from rest_framework.routers import DefaultRouter
 from rest_framework.routers import SimpleRouter
 
-from backend.users.views import UserViewSet
+from users.views import UserViewSet
 from django.urls import path, include
 
 if settings.DEBUG:

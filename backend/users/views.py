@@ -12,7 +12,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from allauth.account.models import EmailAddress
 from django.http import JsonResponse
 import jwt
-from backend.users.models import User
+from users.models import User
 from .serializers import UserSerializer, LoginSerializer, VerifyCodeSerializer
 from django.conf import settings
 
