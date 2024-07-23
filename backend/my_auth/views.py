@@ -14,7 +14,6 @@ from django.core.mail import EmailMessage
 from django.contrib.auth import get_backends
 from .utils import send_mail_verify_link, send_rest_password_link
 
-
 class LoginView(APIView):
     permission_classes = (AllowAny,)
     authentication_classes = ()
