@@ -4,11 +4,13 @@ services:
   db:
     image: postgres
     environment:
+      - "POSTGRES_DB: nomoca"
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=qweQWE123"
 
   web:
     build: .
+    image: nomoca_backend
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code

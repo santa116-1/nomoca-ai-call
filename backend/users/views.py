@@ -669,7 +669,6 @@ class GoogleLoginCheck(APIView):
                 return jwt.algorithms.RSAAlgorithm.from_jwk(key)
         raise ValueError("Key ID not found in Google's public keys")
         
-
 class GoogleLoginCheck2(APIView):
     permission_classes = (AllowAny,)
     authentication_classes = ()
@@ -685,11 +684,7 @@ class GoogleLoginCheck2(APIView):
             token_info = response.json()
 
             if response.status_code == 200:
-                # Token is valid, proceed with your logic (e.g., register user, generate JWT token)
-                # Example logic: register or authenticate the user based on token info
                 email = token_info.get('email')
-                # Add your logic here to register or authenticate the user
-                # Example: user = User.objects.get(email=email)
                 if not email:
                     return JsonResponse({'error': 'Failed to extract email from Google credentials'}, status=400)
             

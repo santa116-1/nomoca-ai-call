@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import RootLayout from "./RootLayout";
 import InitPage from "./InitPage";
 import ClientErrorPage from "./ClientErrorPage";
-import ReceiveResult from "./ReceiveResult";
 import HomeTab from "./HomeTab";
 import Result from "./Result";
 

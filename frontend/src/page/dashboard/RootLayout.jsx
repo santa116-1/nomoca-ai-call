@@ -1,5 +1,4 @@
 import React from 'react';
-import TopBar from '../../component/common/TopBar';
 import Header from '../../component/common/header';
 
 export const metadata = {
