@@ -122,15 +122,6 @@ docker ps
     docker-compose exec web python manage.py migrate
 
 ```
-
-### 仮想環境の設定
-プロジェクトディレクトリに `.venv` 仮想環境を作成し、依存関係をインストールします。
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
 ### データベースのバックアップと復元
 データベースのバックアップを取得するには、以下のコマンドを使用します。
 
