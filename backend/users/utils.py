@@ -1,6 +1,6 @@
 #utils.py
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import Mail
 from cryptography.fernet import Fernet
 
 def encrypt_data(data, key):
@@ -114,22 +114,23 @@ def send_security_code(email, verification_link):
         </html>
         """
     html_content = html_content.replace("{{ verification_link }}", str(verification_link))
-    message = Mail(
-    from_email='santabaner1223@gmail.com',
-    to_emails=email,
-    subject='Mail-verify',
-    html_content=html_content
-    )
-    try:
-        sg = SendGridAPIClient('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')
-        response = sg.send(message)
-        print("successfull", response.status_code)  # Print the status code
-        if response.status_code == 202:
-            print("Email sent successfully!")
-            return {"status": "success", "status_code": response.status_code}
-        else:
-            print(f"Failed to send email. Status code: {response.status_code}")
-            return {"status": "failure", "status_code": response.status_code}
-    except Exception as e:
-        print(e)
-        return {"status": "error", "message": str(e)}
+    # message = Mail(
+    # from_email='santabaner1223@gmail.com',
+    # to_emails=email,
+    # subject='Mail-verify',
+    # html_content=html_content
+    # )
+    # try:
+    #     sg = SendGridAPIClient('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')
+    #     response = sg.send(message)
+    #     print("successfull", response.status_code)  # Print the status code
+    #     if response.status_code == 202:
+    #         print("Email sent successfully!")
+    #         return {"status": "success", "status_code": response.status_code}
+    #     else:
+    #         print(f"Failed to send email. Status code: {response.status_code}")
+    #         return {"status": "failure", "status_code": response.status_code}
+    # except Exception as e:
+    #     print(e)
+    #     return {"status": "error", "message": str(e)}
+    return {"status": "success", "status_code": "response.status_code"}
