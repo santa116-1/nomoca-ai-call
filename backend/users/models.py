@@ -45,26 +45,10 @@ class User(AbstractUser):
         ("Investor", "Investor"),
     ]
 
-    # First and last name do not cover name patterns around the globe
-    fullname = CharField(max_length=255, default="User Name")
-    name = CharField(_("Name of User"), blank=True, max_length=255)
-    first_name = models.CharField(_("firstName of User"), blank=True, max_length=100)
-    last_name = models.CharField(_("lastName of User"), blank=True, max_length=100)
-    user_type = CharField(max_length=50, choices=USER_TYPE_CHOICES, default="User")
-    is_premium = models.BooleanField(default=False)
     email = EmailField(_("email address"), unique=True)
     username = None  # type: ignore[assignment]
-    profile_info = models.TextField(blank=True)
-    user_image = models.ImageField(upload_to="media/user_images", null=True, blank=True)
     mail_verify_statu = models.BooleanField(default=False)
     auth_code = models.CharField(_("Authentication Code"), max_length=6, blank=True)
-
-
-    # # Fields for storing card information
-    # card_brand = models.CharField(max_length=50, blank=True, null=True)
-    # card_last4 = models.CharField(max_length=4, blank=True, null=True)
-    # card_exp_month = models.IntegerField(blank=True, null=True)
-    # card_exp_year = models.IntegerField(blank=True, null=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
