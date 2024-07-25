@@ -11,6 +11,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
+import AddUserModal from './AddUserModal';
 
 const users = [
   { name: 'AAAAAクリニック', category: '内科', email: 'aaaaa@example.com', personInCharge: '田中一郎', permission: '利用者' },
@@ -58,6 +59,7 @@ const UserTable = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [isActive, setIsActive] = useState(true);
   const [open, setOpen] = useState(false);
+  const [editFlag, setEditFlag] = useState(false)
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -71,7 +73,15 @@ const UserTable = () => {
     setPage(0);
   };
 
-
+  const editUserInfo=(index)=>{
+    console.log(index);
+    setEditFlag(true);
+    setOpen(true);
+  }
+  const newUserInfo=()=>{
+    setEditFlag(false);
+    setOpen(true);
+  }
   return (
     <div>
       <div className=' flex justify-between mt-5'>
@@ -100,7 +110,7 @@ const UserTable = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleOpen}>
+            onClick={newUserInfo}>
             利用者追加
           </Button>
         </div>
@@ -113,26 +123,8 @@ const UserTable = () => {
           slots={{ backdrop: StyledBackdrop }}
         >
           <Fade in={open}>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 bg-white rounded-lg border border-gray-200 shadow-lg p-6">
-              <h2 id="transition-modal-title" className="text-blue-700 font-semibold mb-2">
-                利用者情報追加
-              </h2>
-              <p id="transition-modal-description" className="text-gray-800 mb-2">
-                Add image
-                利用者名
-                担当者名
-                種別
-                權限
-                キャンセル
-                追加
-                有効
-                AICALL PHONE NUMBER
-                EMAIL
-                備考
-              </p>
-              <div className='flex justify-end'>
-                <Button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700" onClick={handleClose}>OK</Button>
-              </div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[50%] bg-white rounded-lg border border-gray-200 shadow-lg p-6">
+              <AddUserModal editFlag={editFlag} handleClose = {handleClose}/>
             </div>
           </Fade>
         </Modal>
@@ -185,7 +177,7 @@ const UserTable = () => {
                       )}
                     </TableCell>
                     <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap: "5px" }}>
-                      <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}>
+                      <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }} onClick={()=>editUserInfo(index)}>
                         <MdOutlineEdit className='w-4 h-4' />
                       </IconButton>
                       <IconButton color='error' aria-label="delete" sx={{ borderRadius: 2, backgroundColor: "#FCEBEB" }}>
