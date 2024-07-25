@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, IconButton, TextField, Select, MenuItem, FormControl, InputLabel,
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, IconButton, 
   TablePagination
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdOutlineEdit } from "react-icons/md";
 
 const users = [
   { name: 'AAAAAクリニック', category: '内科', email: 'aaaaa@example.com', personInCharge: '田中一郎', permission: '利用者' },
@@ -66,15 +67,6 @@ const UserTable = () => {
   return (
     <div>
       <div className=' flex justify-between mt-5'>
-        {/* <div className=' flex items-center gap-3'>
-          <div>
-            <Button variant="contained">Active</Button>
-            <Button variant="outlined" >Inactive</Button>
-          </div>
-          <div>
-            <TextField variant="outlined" placeholder="Search" size="small" />
-          </div>
-        </div> */}
         <div className="flex items-center space-x-2">
           <div className="flex border border-gray-300 rounded-md overflow-hidden">
             <button
@@ -147,12 +139,12 @@ const UserTable = () => {
                         </span>
                       )}
                     </TableCell>
-                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none" }}>
-                      <IconButton color="primary" aria-label="edit">
-                        <EditIcon />
+                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap:"5px" }}>
+                      <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}>
+                        <MdOutlineEdit className='w-4 h-4'/>
                       </IconButton>
-                      <IconButton color="secondary" aria-label="delete">
-                        <DeleteIcon />
+                      <IconButton color='error' aria-label="delete" sx={{ borderRadius: 2, backgroundColor: "#FCEBEB"}}>
+                        <RiDeleteBin6Line className='w-4'/>
                       </IconButton>
                     </TableCell>
                   </TableRow>
