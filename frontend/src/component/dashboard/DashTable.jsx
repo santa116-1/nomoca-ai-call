@@ -3,9 +3,13 @@ import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   TextField, IconButton, TablePagination
 } from '@mui/material';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PhoneIcon from '@mui/icons-material/Phone';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PropTypes from 'prop-types';
+import { Modal as BaseModal } from '@mui/base/Modal';
+import Fade from '@mui/material/Fade';
+import { Button } from '@mui/base/Button';
+import { styled } from '@mui/system';
 
 const data = [
   { type: '新規予約(当日)', phone: '-', name: '田中一郎', ticket: '-', detail: '-', date: '04/23 12:39:29', status: '完了', caller: '090-4578-6737' },
@@ -21,6 +25,10 @@ const data = [
 const DashTable = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -64,21 +72,51 @@ const DashTable = () => {
               <TableCell>{row.ticket}</TableCell>
               <TableCell>{row.detail}</TableCell>
               <TableCell>
-                <IconButton sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}>
+                <IconButton
+                  sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}
+
+                  onClick={handleOpen}
+                >
                   <CalendarMonthIcon />
                 </IconButton>
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  open={open}
+                  onClose={handleClose}
+                  closeAfterTransition
+                  slots={{ backdrop: StyledBackdrop }}
+                >
+                  <Fade in={open}>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 bg-white rounded-lg border border-gray-200 shadow-lg p-6">
+                      <h2 id="transition-modal-title" className="text-blue-700 font-semibold mb-2">
+                        用件(詳細)
+                      </h2>
+                      <p id="transition-modal-description" className="text-gray-800 mb-2">
+                        インフルエンザの予防接種の予約を取りたいの
+                        でお電話いたしました。 出来れば今月の平日午
+                        後に予約取りたいのですが可能でしょうか?
+                      </p>
+                      <div className='flex justify-end'>
+                        <Button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700" onClick={handleClose}>OK</Button>
+                      </div>
+                    </div>
+                  </Fade>
+                </Modal>
               </TableCell>
               <TableCell>{row.detail.split(' ')[1]}</TableCell>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.status}</TableCell>
               <TableCell>{row.caller}</TableCell>
               <TableCell>
-                <IconButton sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }} >
-                  <PhoneIcon/>
+                <IconButton sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}
+                >
+                  <PhoneIcon />
                 </IconButton>
               </TableCell>
               <TableCell>
-                <IconButton sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}>
+                <IconButton sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}
+                >
                   <PhoneIcon />
                 </IconButton>
               </TableCell>
@@ -101,5 +139,35 @@ const DashTable = () => {
     </TableContainer>
   );
 };
+
+const Backdrop = React.forwardRef((props, ref) => {
+  const { open, ...other } = props;
+  return (
+    <Fade in={open}>
+      <div ref={ref} {...other} />
+    </Fade>
+  );
+});
+
+Backdrop.propTypes = {
+  open: PropTypes.bool,
+};
+
+const Modal = styled(BaseModal)`
+  position: fixed;
+  z-index: 1300;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledBackdrop = styled(Backdrop)`
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.1);
+  -webkit-tap-highlight-color: transparent;
+`;
 
 export default DashTable;

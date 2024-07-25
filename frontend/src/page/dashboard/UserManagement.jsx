@@ -5,7 +5,7 @@ import Breadcrumb from '../../component/dashboard/Breadcrumb';
 
 const UserManagement = () => {
   return (
-    <div>
+    <div className='p-10'>
       <div className="p-4">
         <Breadcrumb />
         <MainTitle title="利用者管理" />

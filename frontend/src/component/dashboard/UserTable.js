@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, IconButton, 
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, IconButton,
   TablePagination
 } from '@mui/material';
+import PropTypes from 'prop-types';
+import { Modal as BaseModal } from '@mui/base/Modal';
+import Fade from '@mui/material/Fade';
+import { styled } from '@mui/system';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -53,6 +57,10 @@ const UserTable = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [isActive, setIsActive] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -89,8 +97,35 @@ const UserTable = () => {
           />
         </div>
         <div>
-          <Button variant="contained" color="primary">利用者追加</Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleOpen}>
+            利用者追加
+          </Button>
         </div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          slots={{ backdrop: StyledBackdrop }}
+        >
+          <Fade in={open}>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 bg-white rounded-lg border border-gray-200 shadow-lg p-6">
+              <h2 id="transition-modal-title" className="text-blue-700 font-semibold mb-2">
+                利用者情報追加
+              </h2>
+              <p id="transition-modal-description" className="text-gray-800 mb-2">
+                Add image
+              </p>
+              <div className='flex justify-end'>
+                <Button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700" onClick={handleClose}>OK</Button>
+              </div>
+            </div>
+          </Fade>
+        </Modal>
       </div>
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer component={Paper}>
@@ -139,12 +174,12 @@ const UserTable = () => {
                         </span>
                       )}
                     </TableCell>
-                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap:"5px" }}>
+                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap: "5px" }}>
                       <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }}>
-                        <MdOutlineEdit className='w-4 h-4'/>
+                        <MdOutlineEdit className='w-4 h-4' />
                       </IconButton>
-                      <IconButton color='error' aria-label="delete" sx={{ borderRadius: 2, backgroundColor: "#FCEBEB"}}>
-                        <RiDeleteBin6Line className='w-4'/>
+                      <IconButton color='error' aria-label="delete" sx={{ borderRadius: 2, backgroundColor: "#FCEBEB" }}>
+                        <RiDeleteBin6Line className='w-4' />
                       </IconButton>
                     </TableCell>
                   </TableRow>
@@ -166,4 +201,33 @@ const UserTable = () => {
   );
 }
 
+const Backdrop = React.forwardRef((props, ref) => {
+  const { open, ...other } = props;
+  return (
+    <Fade in={open}>
+      <div ref={ref} {...other} />
+    </Fade>
+  );
+});
+
+Backdrop.propTypes = {
+  open: PropTypes.bool,
+};
+
+const Modal = styled(BaseModal)`
+  position: fixed;
+  z-index: 1300;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledBackdrop = styled(Backdrop)`
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
 export default UserTable;
