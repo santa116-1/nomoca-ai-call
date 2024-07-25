@@ -27,7 +27,7 @@ const users = [
 
 const columns = [
   { id: 'name', label: '利用者名', minWidth: 230 },
-  { id: 'sex', label: '種別', minWidth: 100 },
+  { id: 'type', label: '種別', minWidth: 100 },
   {
     id: 'email',
     label: 'Email',
@@ -119,6 +119,16 @@ const UserTable = () => {
               </h2>
               <p id="transition-modal-description" className="text-gray-800 mb-2">
                 Add image
+                利用者名
+                担当者名
+                種別
+                權限
+                キャンセル
+                追加
+                有効
+                AICALL PHONE NUMBER
+                EMAIL
+                備考
               </p>
               <div className='flex justify-end'>
                 <Button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700" onClick={handleClose}>OK</Button>
