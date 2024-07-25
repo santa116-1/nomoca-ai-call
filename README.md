@@ -134,4 +134,13 @@ docker ps
 ```bash
     cat backup.sql | docker-compose exec -T db psql -U user nomoca
 
-```
+``` 
+## フロントエンド.env設定。
+
+例: 
+ ```bash
+
+    REACT_APP_API_URL=http://127.0.0.1:8000 #バックエンド URL
+    PUBLIC_URL=http://127.0.0.1:3000 # フロントエンドURL
+
+``` 
