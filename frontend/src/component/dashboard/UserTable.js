@@ -1,0 +1,177 @@
+import React, { useState } from 'react';
+import {
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, IconButton, TextField, Select, MenuItem, FormControl, InputLabel,
+  TablePagination
+} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+
+const users = [
+  { name: 'AAAAAクリニック', category: '内科', email: 'aaaaa@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'ユニロボット株式会社', category: '利用者', email: 'dev@unirobot.com', personInCharge: '郷内政則', permission: '管理者' },
+  { name: 'BBBBBクリニック', category: '外科', email: 'BBBBB@example.com', personInCharge: '田中二郎', permission: '利用者' },
+  { name: 'CCCCCクリニック', category: '利用者', email: 'ccccc@example.com', personInCharge: '田中三郎', permission: '利用者' },
+  { name: 'DDDDDクリニック', category: '小児科', email: 'dddd@example.com', personInCharge: '田中四郎', permission: '利用者' },
+  { name: 'EEEEEクリニック', category: '内科', email: 'eeeee@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'FFFFFクリニック', category: '内科', email: 'fffff@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'GGGGGクリニック', category: '内科', email: 'ggggg@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'HHHHHクリニック', category: '耳鼻科', email: 'hhhhh@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'IIIIIクリニック', category: '整形外科', email: 'iiiii@example.com', personInCharge: '田中一郎', permission: '利用者' }
+];
+
+const columns = [
+  { id: 'name', label: '利用者名', minWidth: 230 },
+  { id: 'sex', label: '種別', minWidth: 100 },
+  {
+    id: 'email',
+    label: 'Email',
+    minWidth: 150,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'contact_name',
+    label: '担当者名',
+    minWidth: 150,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'authority',
+    label: '権限',
+    minWidth: 200,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
+
+];
+
+const UserTable = () => {
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [isActive, setIsActive] = useState(true);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+
+  return (
+    <div>
+      <div className=' flex justify-between mt-5'>
+        {/* <div className=' flex items-center gap-3'>
+          <div>
+            <Button variant="contained">Active</Button>
+            <Button variant="outlined" >Inactive</Button>
+          </div>
+          <div>
+            <TextField variant="outlined" placeholder="Search" size="small" />
+          </div>
+        </div> */}
+        <div className="flex items-center space-x-2">
+          <div className="flex border border-gray-300 rounded-md overflow-hidden">
+            <button
+              className={`px-4 py-2 ${isActive ? 'bg-gray-200 font-bold' : 'bg-gray-100'}`}
+              onClick={() => setIsActive(true)}
+            >
+              Active
+            </button>
+            <button
+              className={`px-4 py-2 ${!isActive ? 'bg-gray-200 font-bold' : 'bg-gray-100'}`}
+              onClick={() => setIsActive(false)}
+            >
+              Inactive
+            </button>
+          </div>
+          <input
+            type="text"
+            placeholder="Search"
+            className="ml-2 px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <Button variant="contained" color="primary">利用者追加</Button>
+        </div>
+      </div>
+      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow sx={{ borderBottom: "2px solid #ddd" }}>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                    sx={{ borderBottom: "none" }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((user, index) => (
+                  <TableRow key={index} sx={{ borderBottom: "1px solid #ddd" }}>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={{
+                          width: 36, height: 36, borderRadius: '50%', backgroundColor: 'gray', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 8
+                        }}>
+                          <span style={{ color: 'white' }}>{user.name.charAt(0)}</span>
+                        </div>
+                        {user.name}
+                      </div>
+                    </TableCell>
+
+                    <TableCell sx={{ borderBottom: "none" }}>{user.category}</TableCell>
+                    <TableCell align="right" sx={{ borderBottom: "none" }}>{user.email}</TableCell>
+                    <TableCell align="right" sx={{ borderBottom: "none" }}>{user.personInCharge}</TableCell>
+                    <TableCell align="right" sx={{ borderBottom: "none" }}>
+                      {user.permission === '管理者' ? (
+                        <span style={{ color: 'white', background: '#E31717', padding: '3px', borderRadius: '2px' }}>
+                          {user.permission}
+                        </span>
+                      ) : (
+                        <span style={{ background: '#ECF0F1', padding: '3px', borderRadius: '2px' }}>
+                          {user.permission}
+                        </span>
+                      )}
+                    </TableCell>
+                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none" }}>
+                      <IconButton color="primary" aria-label="edit">
+                        <EditIcon />
+                      </IconButton>
+                      <IconButton color="secondary" aria-label="delete">
+                        <DeleteIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25, 100]}
+          component="div"
+          count={users.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+    </div>
+  );
+}
+
+export default UserTable;
