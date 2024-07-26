@@ -1,10 +1,13 @@
 import React from "react";
 import ClientError from "../../component/error/ClientError";
+import Container from "../../component/dashboard/Container";
 
 const ClientErrorPage = () => {
   return (
     <>
-      <ClientError />
+      <div className="h-[calc(100vh-60px)]">
+        <ClientError />
+      </div>
     </>
   );
 };

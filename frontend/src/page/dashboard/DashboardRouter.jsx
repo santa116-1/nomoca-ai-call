@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import RootLayout from "./RootLayout";
-import InitPage from "./InitPage";
 import ClientErrorPage from "./ClientErrorPage";
 import HomeTab from "./HomeTab";
 import Result from "./Result";
@@ -18,9 +17,8 @@ const DashboardRouter = () => {
       <Routes>
         <Route path="/" element={<HomeTab/>} />
         <Route path="/result" element={<Result />} />
-        <Route path="/home" element={<InitPage />} />
         <Route path="/user-info" element={<UserManagement />} />
-        <Route path="*" element={<ClientErrorPage />} />
+        <Route path="/*" element={<ClientErrorPage />} />
       </Routes>
     </RootLayout>
 

@@ -131,7 +131,7 @@ const ResetPassword = () => {
               </div>
               <button
                 type="submit"
-                className="w-full py-2 bg-blue-800 text-white font-bold rounded-md hover:bg-[#22294e] focus:outline-none focus:bg-[#0e1225]"
+                className="w-full justify-center py-2 bg-blue-800 text-white font-bold rounded-md hover:bg-[#22294e] focus:outline-none focus:bg-[#0e1225]"
               >
                 <span className="inline-block mr-2">変更</span>
               </button>

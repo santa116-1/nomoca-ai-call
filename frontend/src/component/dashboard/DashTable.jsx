@@ -40,7 +40,7 @@ const DashTable = () => {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table>
         <TableHead>
           <TableRow>

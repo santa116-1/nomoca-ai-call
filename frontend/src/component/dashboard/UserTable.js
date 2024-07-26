@@ -21,6 +21,12 @@ const users = [
   { name: 'FFFFFクリニック', category: '内科', email: 'fffff@example.com', personInCharge: '田中一郎', permission: '利用者' },
   { name: 'GGGGGクリニック', category: '内科', email: 'ggggg@example.com', personInCharge: '田中一郎', permission: '利用者' },
   { name: 'HHHHHクリニック', category: '耳鼻科', email: 'hhhhh@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'IIIIIクリニック', category: '整形外科', email: 'iiiii@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'GGGGGクリニック', category: '内科', email: 'ggggg@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'HHHHHクリニック', category: '耳鼻科', email: 'hhhhh@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'IIIIIクリニック', category: '整形外科', email: 'iiiii@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'GGGGGクリニック', category: '内科', email: 'ggggg@example.com', personInCharge: '田中一郎', permission: '利用者' },
+  { name: 'HHHHHクリニック', category: '耳鼻科', email: 'hhhhh@example.com', personInCharge: '田中一郎', permission: '利用者' },
   { name: 'IIIIIクリニック', category: '整形外科', email: 'iiiii@example.com', personInCharge: '田中一郎', permission: '利用者' }
 ];
 
@@ -70,17 +76,17 @@ const UserTable = () => {
     setPage(0);
   };
 
-  const editUserInfo=(index)=>{
+  const editUserInfo = (index) => {
     console.log(index);
     setEditFlag(true);
     setOpen(true);
   }
-  const newUserInfo=()=>{
+  const newUserInfo = () => {
     setEditFlag(false);
     setOpen(true);
   }
   return (
-    <div>
+    <div className='text-lg'>
       <div className=' flex justify-between mt-5'>
         <div className="flex items-center space-x-2">
           <div className="flex border border-gray-300 rounded-md overflow-hidden">
@@ -121,14 +127,14 @@ const UserTable = () => {
         >
           <Fade in={open}>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[50%] bg-white rounded-lg border border-gray-200 shadow-lg p-6">
-              <AddUserModal editFlag={editFlag} handleClose = {handleClose}/>
+              <AddUserModal editFlag={editFlag} handleClose={handleClose} />
             </div>
           </Fade>
         </Modal>
       </div>
-      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer component={Paper}>
-          <Table>
+      <div className=' w-full'>
+        <TableContainer className='max-h-[calc(100vh-366px)]'>
+          <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow sx={{ borderBottom: "2px solid #ddd" }}>
                 {columns.map((column) => (
@@ -148,7 +154,7 @@ const UserTable = () => {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((user, index) => (
                   <TableRow key={index} sx={{ borderBottom: "1px solid #ddd" }}>
-                    <TableCell sx={{ borderBottom: "none" }}>
+                    <TableCell sx={{ borderBottom: "none", fontSize: "16px" }}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={{
                           width: 36, height: 36, borderRadius: '50%', backgroundColor: 'gray', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 8
@@ -159,8 +165,8 @@ const UserTable = () => {
                       </div>
                     </TableCell>
                     <TableCell sx={{ borderBottom: "none" }}>{user.category}</TableCell>
-                    <TableCell align="right" sx={{ borderBottom: "none" }}>{user.email}</TableCell>
-                    <TableCell align="right" sx={{ borderBottom: "none" }}>{user.personInCharge}</TableCell>
+                    <TableCell align="right" sx={{ borderBottom: "none", fontSize: "16px" }}>{user.email}</TableCell>
+                    <TableCell align="right" sx={{ borderBottom: "none", fontSize: "16px" }}>{user.personInCharge}</TableCell>
                     <TableCell align="right" sx={{ borderBottom: "none" }}>
                       {user.permission === '管理者' ? (
                         <span style={{ color: 'white', background: '#E31717', padding: '3px', borderRadius: '2px' }}>
@@ -172,8 +178,8 @@ const UserTable = () => {
                         </span>
                       )}
                     </TableCell>
-                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap: "5px" }}>
-                      <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }} onClick={()=>editUserInfo(index)}>
+                    <TableCell sx={{ display: "flex", justifyContent: "flex-end", borderBottom: "none", gap: "10px" }}>
+                      <IconButton aria-label="edit" sx={{ borderRadius: 2, backgroundColor: "#EAEFF9", color: "primary.main" }} onClick={() => editUserInfo(index)}>
                         <MdOutlineEdit className='w-4 h-4' />
                       </IconButton>
                       <IconButton color='error' aria-label="delete" sx={{ borderRadius: 2, backgroundColor: "#FCEBEB" }}>
@@ -194,7 +200,7 @@ const UserTable = () => {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
-      </Paper>
+      </div>
     </div>
   );
 }

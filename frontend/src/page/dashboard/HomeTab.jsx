@@ -6,10 +6,11 @@ import ChartTimme from '../../component/dashboard/widgets/ChartTimme';
 import CustomDonutChart from '../../component/dashboard/CustomDonutChart';
 import DetailsTable from '../../component/dashboard/DetailsTable';
 import SearchInput from '../../component/dashboard/SearchInput';
+import Container from '../../component/dashboard/Container';
 
 function HomeTab() {
   return (
-    <div className=" w-full min-w-0 p-24">
+    <Container>
       <SearchInput />
       <div className=' grid grid-cols-2 gap-5'>
         <div className=' grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-5'>
@@ -30,7 +31,7 @@ function HomeTab() {
         <ChartDate />
         <ChartTimme />
       </div>
-    </div>
+    </Container>
   );
 }
 

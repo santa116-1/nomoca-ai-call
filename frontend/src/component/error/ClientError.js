@@ -4,10 +4,10 @@ import ClientErrorImage from '../../assets/error/client-error.svg';
 
 const ClientError = () => {
   return (
-    <div className='h-screen w-full min-h-0 p-2 justify-center overflow-hidden flex'>
+    <div className='h-full w-full min-h-0 p-2 justify-center overflow-hidden flex'>
       <div className='flex flex-col lg:flex-row-reverse items-center py-15 px-5 rounded-md  justify-center pt-30'>
         <div className='relative flex'>
-          <img src={ClientErrorImage} alt=''/>
+          <img src={ClientErrorImage} alt='Client Error' className='max-w-full' />
         </div>
         <div className='relative flex flex-col items-center'>
           <span className='break-words text-[4rem] font-semibold mb-[1.8rem] text-black'>Oops!</span>

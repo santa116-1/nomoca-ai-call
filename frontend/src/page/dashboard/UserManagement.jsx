@@ -2,16 +2,17 @@ import React from 'react';
 import UserTable from '../../component/dashboard/UserTable';
 import MainTitle from '../../component/dashboard/MainTitle';
 import Breadcrumb from '../../component/dashboard/Breadcrumb';
+import Container from '../../component/dashboard/Container';
 
 const UserManagement = () => {
   return (
-    <div className='p-10'>
-      <div className="p-4">
+    <Container>
+      <div>
         <Breadcrumb />
         <MainTitle title="利用者管理" />
       </div>
       <UserTable />
-    </div>
+    </Container>
   );
 };
 
