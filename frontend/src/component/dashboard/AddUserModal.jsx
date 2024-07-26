@@ -64,10 +64,6 @@ const AddUserModal = ({ editFlag, handleClose }) => {
             <h2 className="text-xl font-bold mb-4">利用者情報編集</h2>
             <form onSubmit={handleSubmit}>
                 <div className="flex items-center mb-4">
-                    {/* <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full mr-4">
-                        A
-                    </div>
-                    <button className="text-blue-500">Add image</button> */}
                     <div className="relative">
                         <input
                             type="file"
@@ -87,9 +83,7 @@ const AddUserModal = ({ editFlag, handleClose }) => {
                             </div>
                         )}
                     </div>
-
                 </div>
-
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="mb-4">

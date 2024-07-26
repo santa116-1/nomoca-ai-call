@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import { Modal as BaseModal } from '@mui/base/Modal';
 import Fade from '@mui/material/Fade';
 import { styled } from '@mui/system';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
 import AddUserModal from './AddUserModal';
@@ -61,7 +59,6 @@ const UserTable = () => {
   const [open, setOpen] = useState(false);
   const [editFlag, setEditFlag] = useState(false)
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleChangePage = (event, newPage) => {
@@ -161,7 +158,6 @@ const UserTable = () => {
                         {user.name}
                       </div>
                     </TableCell>
-
                     <TableCell sx={{ borderBottom: "none" }}>{user.category}</TableCell>
                     <TableCell align="right" sx={{ borderBottom: "none" }}>{user.email}</TableCell>
                     <TableCell align="right" sx={{ borderBottom: "none" }}>{user.personInCharge}</TableCell>

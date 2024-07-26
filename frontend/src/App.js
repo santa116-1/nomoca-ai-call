@@ -9,7 +9,6 @@ import EmailVerification from "./authontication/EmailVerification";
 import SignOutPage from "./authontication/SignOutPage";
 import WaitEmail from "./authontication/WaitEmail";
 
-import HomePage from "./page/home/HomePage";
 import './App.scss';
 import SecurityCode from "./authontication/SecurityCode";
 import DashboardRouter from "./page/dashboard/DashboardRouter";

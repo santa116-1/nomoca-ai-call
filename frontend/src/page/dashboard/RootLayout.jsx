@@ -2,10 +2,9 @@ import React from 'react';
 import Header from '../../component/common/header';
 
 export const metadata = {
-  title: 'Article AI Generator',
-  description: 'Article AI',
+  title: 'nomoca-ai call',
+  description: 'Clinic call management tool',
 };
-
 
 const RootLayout = ({ children }) => {
 
