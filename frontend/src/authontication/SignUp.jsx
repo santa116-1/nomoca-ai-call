@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { InputAdornment, IconButton, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Error from "../component/common/error";
-// import Notification from "../component/notification";
 
 const handleLogin = () => {
-
-  // Handle login with Google
   const auth2 = window.gapi.auth2.getAuthInstance();
   auth2.signIn().then((googleUser) => {
     const id_token = googleUser.getAuthResponse().id_token;
-    // Send the token to your backend for verification
-    // (using fetch or Axios)
   });
 };
 
@@ -42,16 +36,13 @@ const SignUp = (props) => {
   };
 
   const validatePassword = (password) => {
-    // Define a regular expression pattern for password validation
     const pattern =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     return pattern.test(password);
   };
   const validateForm = () => {
-    // Reset error state
     setError("");
 
-    // Email validation
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(email)) {
       setError("有効なメールアドレスを入力してください。");

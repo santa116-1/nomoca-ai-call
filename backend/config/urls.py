@@ -9,6 +9,5 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-
     path("api/", include("config.api_router")),
 ]

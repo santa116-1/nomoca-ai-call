@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const WaitEmail = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const apiUrl = process.env.REACT_APP_API_URL;
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     navigate("/login")
@@ -44,7 +41,6 @@ const WaitEmail = () => {
                 className="w-full py-2 bg-blue-800 text-white font-bold rounded-md hover:bg-[#22294e] focus:outline-none focus:bg-[#0e1225]"
               >
                 <span className="inline-block mr-2">ログイン画面に戻る</span>
-                {/* Replace with actual spinner component */}
                 <span className="inline-block spinner-border spinner-border-sm align-middle"></span>
               </button>
             </form>

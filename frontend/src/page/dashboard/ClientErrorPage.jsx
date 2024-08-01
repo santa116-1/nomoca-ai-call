@@ -1,6 +1,5 @@
 import React from "react";
 import ClientError from "../../component/error/ClientError";
-import Container from "../../component/dashboard/Container";
 
 const ClientErrorPage = () => {
   return (

@@ -6,7 +6,6 @@ import { memo, useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Box from '@mui/material/Box';
 
-
 function Chart() {
   const theme = useTheme();
   const [awaitRender, setAwaitRender] = useState(true);
