@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import './CustomDonutChart.css'; // Import the CSS file
+import './CustomDonutChart.css';
 
 const CustomDonutChart = () => {
-  const series = [60, 30, 10]; // Data from the provided image
+  const series = [60, 30, 10]; 
   const options = {
     chart: {
       type: 'donut',
     },
-    colors: ['#344CF8', '#7797FB', '#C7D7FC'], // Colors matching your design
+    colors: ['#344CF8', '#7797FB', '#C7D7FC'],
     labels: ['新規予約(当日)', '新規予約(明日以降)', '予約キャンセル'],
     legend: {
       show: false,
