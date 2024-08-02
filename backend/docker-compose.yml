@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  db:
+  nomoca-db:
     image: postgres
     environment:
       - "POSTGRES_DB=nomoca"
@@ -9,7 +9,10 @@ services:
       - "POSTGRES_PASSWORD=qweQWE123"
     ports:
       - "5432:5432"
-  web:
+    networks:
+      - nomoca_network
+    
+  nomoca-web:
     build: .
     image: nomoca_backend
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -22,4 +25,10 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=qweQWE123
     depends_on:
-      - db
+      - nomoca-db
+    networks:
+      - nomoca_network
+
+networks:
+  nomoca_network:
+    driver: bridge
